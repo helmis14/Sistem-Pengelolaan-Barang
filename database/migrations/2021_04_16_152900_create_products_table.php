@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('qty');
+            $table->string('price');
             $table->foreignId('brands_id')->constrained();
             $table->foreignId('categories_id')->constrained();
             $table->string('photo');

@@ -1,83 +1,123 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html :class="{ 'theme-dark': dark }" x-data="data()"  lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+        <title>{{ config('app.name') }}</title>
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="{{ asset('assets/css/tailwind.output.css') }}" />
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+        <script src="{{ asset('assets/js/init-alpine.js') }}"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
+        <script src="{{ asset('assets/js/charts-lines.js') }}" defer></script>
+        <script src="{{ asset('assets/js/charts-pie.js') }}" defer></script>
+        <style>
+            #loader {
+              transition: all 0.3s ease-in-out;
+              opacity: 1;
+              visibility: visible;
+              position: fixed;
+              height: 100vh;
+              width: 100%;
+              background: #fff;
+              z-index: 90000;
+            }
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+            #loader.fadeOut {
+              opacity: 0;
+              visibility: hidden;
+            }
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+            .spinner {
+              width: 40px;
+              height: 40px;
+              position: absolute;
+              top: calc(50% - 20px);
+              left: calc(50% - 20px);
+              background-color: #333;
+              border-radius: 100%;
+              -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+              animation: sk-scaleout 1.0s infinite ease-in-out;
+            }
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            @-webkit-keyframes sk-scaleout {
+              0% { -webkit-transform: scale(0) }
+              100% {
+                -webkit-transform: scale(1.0);
+                opacity: 0;
+              }
+            }
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+            @keyframes sk-scaleout {
+              0% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+              } 100% {
+                -webkit-transform: scale(1.0);
+                transform: scale(1.0);
+                opacity: 0;
+              }
+            }
+        </style>
 
-                    </ul>
+        <!-- Fonts -->
+        {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"> --}}
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-                            
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+        <!-- Styles -->
+        {{-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}"></script>
+        {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+    </head>
+    <body>
+        @include('sweet::alert')
+        <div id='loader'>
+            <div class="spinner"></div>
+        </div>
+        <script>
+            window.addEventListener('load', function load() {
+                const loader = document.getElementById('loader');
+                setTimeout(function() {
+                    loader.classList.add('fadeOut');
+                }, 300);
+            });
+        </script>
+        <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+            @include('components.sidebar')
+
+            <div class="flex flex-col flex-1 w-full">
+
+                @include('components.heading')
+
+                <main class="h-full overflow-y-auto">
+                    <div class="container px-6 my-6 py-auto mx-auto grid">
+
+                        {{ $slot }}
+
+                      	{{-- @yield('content') --}}
+
+                    </div>
+                </main>
             </div>
-        </nav>
+        </div>
+        @if (Session::has('sweet_alert.alert'))
+        <script>
+          swal({
+              text: "{!! Session::get('sweet_alert.text') !!}",
+              title: "{!! Session::get('sweet_alert.title') !!}",
+              timer: {!! Session::get('sweet_alert.timer') !!},
+              icon: "{!! Session::get('sweet_alert.type') !!}",
+              buttons: "{!! Session::get('sweet_alert.buttons') !!}",
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-</body>
+              // more options
+          });
+        </script>
+        @endif
+    </body>
 </html>
