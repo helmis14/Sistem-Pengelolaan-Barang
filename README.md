@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to Latihan Praktikum Pemrograman Web Lanjut 👋</h1>
+<h1 align="center">Tugas Besar PWL</h1>
 <p>
 </p>
 
@@ -8,7 +8,15 @@
 npm install
 composer install
 ```
-
+```sh
+## fix if php error
+composer self-update
+composer clear-cache
+rm -rf vendor
+rm composer.lock
+composer install --ignore-platform-reqs
+npm install
+```
 ## Usage
 
 ```sh
@@ -23,25 +31,6 @@ php artisan storage:link
 ```sh
 php artisan serve
 ```
-
-## Demo account
-
-```sh
-email: admin_a@mail.com
-password: 123456
-```
-
-```sh
-email: user_a@mail.com
-password: 123456
-```
-
-## Author
-
-👤 **Labtif Unsur**
-
--   Website: https://www.instagram.com/labtif.unsur/
--   Github: [@labtif-unsur](https://github.com/labtif-unsur)
 
 ## Show your support
 
