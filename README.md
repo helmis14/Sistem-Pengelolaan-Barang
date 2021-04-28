@@ -4,9 +4,8 @@
 
 ## PREVIEW
 <p>Login Page</p>
-```sh
 <img src="preview1.png" />
-```
+
 ## Install
 
 ```sh
