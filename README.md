@@ -4,7 +4,9 @@
 
 ## PREVIEW
 <p>Login Page</p>
-<img src="preview1.png" />
+<img src="preview1.png"/>
+<p>Dashboard Page</p>
+<img src="preview2.png"/>
 
 ## Install
 
@@ -13,7 +15,8 @@ npm install
 composer install
 ```
 ```sh
-## fix if php error  
+
+## Fix if php error  
 composer self-update
 composer clear-cache
 rm -rf vendor
