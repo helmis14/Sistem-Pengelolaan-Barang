@@ -2,10 +2,11 @@
 <p> Enjoy th project
 </p>
 
-<h3>#PREVIEW#<h3>
+## PREVIEW
 <p>Login Page</p>
-<img src="preview1.jpg" />
-
+```sh
+<img src="preview1.png" />
+```
 ## Install
 
 ```sh
