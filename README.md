@@ -2,6 +2,8 @@
 <p>
 </p>
 
+##Preview
+<img src="sawah.jpg" />
 ## Install
 
 ```sh
