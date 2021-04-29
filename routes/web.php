@@ -9,7 +9,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
-
+//helmi
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get(
@@ -19,7 +19,9 @@ Route::group(['middleware' => ['auth']], function () {
         ->name('dashboard');
 
     Route::resource('barang', ProductController::class);
+    Route::resource('kategori', CategorieController::class);
     Route::resource('profil', ProfileController::class);
 });
 
 require __DIR__ . '/auth.php';
+//552011918

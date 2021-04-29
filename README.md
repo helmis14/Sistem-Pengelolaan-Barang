@@ -1,6 +1,6 @@
 <h1 align="center">Tugas Besar PWL</h1>
-<p> Enjoy the project
-</p>
+<p> Helmi Sulaeman 5520119018 IF A 19</p>
+<p> Enjoy The Project </p>
 
 ## PREVIEW
 <p>Database</p>
@@ -11,6 +11,10 @@
 <img src="preview2.png"/>
 <p>User Page</p>
 <img src="preview3.png"/>
+<p>Pengelolaan Barang Page</p>
+<img src="preview4.png"/>
+<p>Kategori Barang Page</p>
+<img src="preview5.png"/>
 
 ## Install
 
