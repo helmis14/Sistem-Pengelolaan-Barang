@@ -18,14 +18,7 @@ Route::group(['middleware' => ['auth']], function () {
     )
         ->name('dashboard');
 
-    Route::resource('barang', ProductController::class);
-    Route::resource('brand', BrandController::class);
-    Route::resource('kategori', CategorieController::class);
-    Route::resource('pegawai', UserController::class);
-    Route::resource('jabatan', RoleController::class);
-    Route::get('laporan/barang',[ProductController::class, 'report'])->name('laporan.barang');
-    Route::get('laporan/transaksi',[TransactionController::class, 'report'])->name('laporan.transaksi');
-    Route::resource('profil', ProfileController::class);
+
 });
 
 require __DIR__ . '/auth.php';
