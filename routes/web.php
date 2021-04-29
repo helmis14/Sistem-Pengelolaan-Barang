@@ -19,6 +19,7 @@ Route::group(['middleware' => ['auth']], function () {
         ->name('dashboard');
 
     Route::resource('barang', ProductController::class);
+    Route::resource('brand', BrandController::class);
     Route::resource('kategori', CategorieController::class);
     Route::resource('profil', ProfileController::class);
 });

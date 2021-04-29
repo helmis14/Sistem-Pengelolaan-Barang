@@ -15,6 +15,8 @@
 <img src="preview4.png"/>
 <p>Kategori Barang Page</p>
 <img src="preview5.png"/>
+<p>Merek Barang Page</p>
+<img src="preview6.png"/>
 
 ## Install
 
