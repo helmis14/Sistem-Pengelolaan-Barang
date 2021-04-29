@@ -19,6 +19,7 @@ Route::group(['middleware' => ['auth']], function () {
         ->name('dashboard');
 
 
+    Route::resource('profil', ProfileController::class);
 });
 
 require __DIR__ . '/auth.php';
