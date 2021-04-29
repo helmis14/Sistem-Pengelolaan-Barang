@@ -18,7 +18,7 @@ Route::group(['middleware' => ['auth']], function () {
     )
         ->name('dashboard');
 
-
+    Route::resource('barang', ProductController::class);
     Route::resource('profil', ProfileController::class);
 });
 

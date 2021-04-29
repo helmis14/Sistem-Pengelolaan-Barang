@@ -1,12 +1,16 @@
 <h1 align="center">Tugas Besar PWL</h1>
-<p> Enjoy th project
+<p> Enjoy the project
 </p>
 
 ## PREVIEW
+<p>Database</p>
+<img src="preview0.png"/>
 <p>Login Page</p>
 <img src="preview1.png"/>
 <p>Dashboard Page</p>
 <img src="preview2.png"/>
+<p>User Page</p>
+<img src="preview3.png"/>
 
 ## Install
 
@@ -38,6 +42,22 @@ php artisan storage:link
 php artisan serve
 ```
 
-## Show your support
+## Account
 
-Give a ⭐️ if this project helped you!
+```sh
+Admin
+Email    : admin@unsur.com
+password : 123456
+```
+
+```sh
+User
+Email    : user@unsur.com
+password : 123456
+```
+
+```sh
+Pegawai
+Email    : pegawai@unsur.com
+password : 123456
+```
