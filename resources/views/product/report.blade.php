@@ -43,22 +43,21 @@
     </style>
 </head>
 <body>
-    <h1 class="center title">Galuh Motor</h1>
-    <div style="margin-top: -10px;">Dari tanggal : 
+    <h1 class="center title">Uhuy Storage</h1>
+    <div style="margin-top: -10px;">Dari tanggal :
         <span class="bold">{{ date('1-M-Y') }}</span>
-        s/d 
+        s/d
         <span class="bold">{{ date('t-M-Y') }}</span>
     </div>
     <table>
         <thead>
             <tr class="th">
-                <th>No</th>
-                <th>Nama Barang</th>
-                <th>Merek</th>
+                <th>Foto</th>
+                <th>Nama</th>
                 <th>Kategori</th>
-                <th>Jumlah</th>
+                <th>Merek</th>
                 <th>Harga</th>
-                <th>Suplayer</th>
+                <th>Stok</th>
             </tr>
         </thead>
         <tbody>
@@ -71,9 +70,9 @@
                     <td>{{ ucfirst($merk->name) }}</td>
                     @endif
                 @endforeach
-                @foreach ($categories as $category)
-                    @if ($category->id == $data->categories_id)
-                        <td>{{ ucfirst($category->name) }}</td>
+                @foreach ($categories as $categorie)
+                    @if ($categorie->id == $data->categories_id)
+                        <td>{{ ucfirst($categorie->name) }}</td>
                     @endif
                 @endforeach
                 <td>{{ number_format($data->qty,0,',','.') }} / pcs</td>

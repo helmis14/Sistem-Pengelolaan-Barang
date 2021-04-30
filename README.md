@@ -18,7 +18,9 @@
 <p>Merek Barang Page</p>
 <img src="preview6.png"/>
 <p>Laporan Barang Masuk Page</p>
-<img src="preview6.png"/>
+<img src="preview7.png"/>
+<p>Laporan Barang Keluar Page</p>
+<img src="preview8.png"/>
 
 ## Install
 

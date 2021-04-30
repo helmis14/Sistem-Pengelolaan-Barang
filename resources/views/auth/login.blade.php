@@ -5,15 +5,13 @@
 
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
-
-        <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <label class="block text-sm">
 
-                <!-- Email Address -->
+                <!-- Email-->
                 <x-label class="text-gray-700 dark:text-gray-400" for="email" :value="__('Email')" />
                 <x-input id="email" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="example@email.com" type="email" name="email" :value="old('email')" required autofocus />
 
