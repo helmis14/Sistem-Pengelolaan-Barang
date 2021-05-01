@@ -2,11 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Categorie;
-use App\Models\Product;
-use App\Models\Brand;
+use App\Models\Attendance;
+use App\Models\Categories;
+use App\Models\Category;
+use App\Models\Employee;
+use App\Models\Item;
+use App\Models\Merk;
+use App\Models\Merks;
 use App\Models\Pegawai;
 use App\Models\Role;
+use App\Models\Suplayer;
+use App\Models\Supplier;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -24,51 +30,59 @@ class DatabaseSeeder extends Seeder
     {
         $faker = Faker::create();
         $limit = 100;
-
+        // \App\Models\User::factory(10)->create();
         Role::create(['name' => 'admin']);
-        Role::create(['name' => 'user']);
+        Role::create(['name' => 'kasir']);
         Role::create(['name' => 'pegawai']);
 
         // Admin
         User::create([
             'name' => 'Admin Unsur',
-            'username' => 'Admin Unsur',
-            'email' => 'admin@unsur.com',
+            'address' => $faker->streetAddress,
+            'phone' => $faker->e164PhoneNumber,
             'photo' => 'default.png',
+            'email' => 'admin@unsur.com',
             'password' => Hash::make(123456)
         ])->roles()->attach(Role::find(1));
 
         // user
         User::create([
             'name' => 'User Unsur',
-            'username' => 'User Unsur',
-            'email' => 'user@unsur.com',
+            'address' => $faker->streetAddress,
+            'phone' => $faker->e164PhoneNumber,
             'photo' => 'default.png',
+            'email' => 'user@unsur.com',
             'password' => Hash::make(123456)
         ])->roles()->attach(Role::find(2));
 
 
         User::create([
             'name' => 'Pegawai Unsur',
-            'username' => 'Pegawai Unsur',
-            'email' => 'pegawai@unsur.com',
+            'address' => $faker->streetAddress,
+            'phone' => $faker->e164PhoneNumber,
             'photo' => 'default.png',
+            'email' => 'pegawai@unsur.com',
             'password' => Hash::make(123456)
         ])->roles()->attach(Role::find(3));
 
         foreach (range(1, $limit) as $index) {
+            Supplier::create([
+                'name' => $faker->name,
+                'phone' => $faker->e164PhoneNumber,
+                'descriptions' => $faker->text($maxNbChars = 50),
+            ]);
 
-            Categorie::create([
+            Categories::create([
                 'name' => $faker->realText($maxNbChars = 20, $indexSize = 2),
             ]);
 
-            Brand::create([
+            Merk::create([
                 'name' => $faker->realText($maxNbChars = 20, $indexSize = 2),
             ]);
         };
 
         foreach (range(1, $limit) as $index) {
-            Product::create([
+            Item::create([
                 'name' => $faker->realText($maxNbChars = 20, $indexSize = 2),
                 'qty' => $faker->numberBetween($min = 1, $max = 9999),
                 'price' => $faker->numberBetween($min = 10000, $max = 999999),

@@ -26,7 +26,7 @@ class Role extends Model
     {
         return $this->belongsToMany(User::class);
     }
-
+    
     public function getRole($request)
     {
         $role_id = DB::table('users')->where('email', '=', $request)->get()[0]->role_id;

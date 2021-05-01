@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Product;
+use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,8 +19,8 @@ class DashboardController extends Controller
 
         $employee = User::count();
 
-        $product = Product::count();
+        $item = Item::count();
 
-        return view('dashboard.index', compact('roleUser', 'product'));
+        return view('dashboard.index', compact('roleUser', 'employee', 'item'));
     }
 }

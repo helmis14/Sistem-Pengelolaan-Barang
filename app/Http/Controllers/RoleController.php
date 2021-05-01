@@ -70,7 +70,7 @@ class RoleController extends Controller
     public function show(Role $jabatan)
     {
         $data = Role::find($jabatan->id);
-
+        
         return view('job.show', compact('data'));
     }
 
