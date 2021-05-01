@@ -1,6 +1,6 @@
 <x-guest-layout>
     <x-auth-card>
-        <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200" > {{ _('Login') }} </h1>
+        <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200" > {{ __('Login') }} </h1>
 
 
         <!-- Session Status -->

@@ -36,7 +36,7 @@
                         <td class="px-4 py-3">
                             <div class="flex items-center text-sm">
                                 <div>
-                                    <p class="font-semibold"><img src="public/assets/img/iphone.png" alt="png"></p>
+                                    <p class="font-semibold"><img src="https://images.tokopedia.net/img/cache/200-square/VqbcmM/2021/2/3/471c1a91-4735-47f0-adca-b176cf5e461f.jpg.webp?ect=4g" alt="png"></p>
                                     @foreach ($merks as $merk)
                                         @if ($merk->id == $data->merk_id)
                                         <p class="text-xs text-gray-600 dark:text-gray-400"></p>
