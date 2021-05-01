@@ -4,10 +4,10 @@
 
 
 ## PREVIEW
-
+<p>Link Demo Web yang sudah dihosting</p>
+<a href="http://immense-river-47392.herokuapp.com/">Klik Web</a>
 <p>Link Demo Video</p>
 <a href="https://youtu.be/_3ySWTGIR-A">Klik Youtube</a>
-
 <p>Database</p>
 <img src="preview0.png"/>
 <p>Login Page</p>
