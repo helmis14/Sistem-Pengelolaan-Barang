@@ -6,8 +6,6 @@
 ## PREVIEW
 
 <p>Link Demo Web yang sudah dihosting <a href="http://immense-river-47392.herokuapp.com/">Klik Web</a></p>
-<p>Tampilan Di Android</p>
-<img src="preview9.jpg"/>
 
 <p>Link Demo Video <a href="https://youtu.be/_3ySWTGIR-A">Klik Youtube</a></p>
 
@@ -15,6 +13,8 @@
 <img src="preview0.png"/>
 <p>Login Page</p>
 <img src="preview1.png"/>
+<p>Tampilan Di Android</p>
+<img src="preview9.jpg"/>
 <p>Dashboard Page</p>
 <img src="preview2.png"/>
 <p>User Page</p>
@@ -29,6 +29,7 @@
 <img src="preview7.png"/>
 <p>Laporan Barang Keluar Page</p>
 <img src="preview8.png"/>
+
 
 ## Install
 
