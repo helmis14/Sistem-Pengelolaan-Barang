@@ -1,5 +1,5 @@
-<h1 align="center">Tugas Besar PWL</h1>
-<p> Helmi Sulaeman 5520119018 IF A 19</p>
+<h1 align="center">Sistem Pengelolaan Barang</h1>
+<p> Helmi Sulaeman</p>
 <p> Enjoy The Project </p>
 
 
